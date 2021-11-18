@@ -5,7 +5,7 @@ import com.company.group12.enums.Values;
 
 import java.util.*;
 
-public class Card {
+public class Deck {
 
     private static final List<String> cards = new ArrayList<>();
 
