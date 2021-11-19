@@ -4,6 +4,7 @@ import com.company.group12.components.Deck;
 import com.company.group12.components.Player;
 import com.company.group12.services.GamePlay;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -14,7 +15,12 @@ public class Main {
         Player player2 = new Player("Jimmy Woo", "2");
         Player player3 = new Player("Michael Black", "3");
 
-        GamePlay gamePlay = new GamePlay(List.of(player1, player2, player3), Deck.getCards());
+        List<Player> threePlayers = new ArrayList<>();
+        threePlayers.add(player1);
+        threePlayers.add(player2);
+        threePlayers.add(player3);
+
+        GamePlay gamePlay = new GamePlay(threePlayers, Deck.getCards());
         gamePlay.dealCards();
         gamePlay.playGame();
 

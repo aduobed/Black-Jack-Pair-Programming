@@ -2,6 +2,8 @@ package com.company.group12.services;
 
 import com.company.group12.components.Player;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class GamePlay {
@@ -22,6 +24,7 @@ public class GamePlay {
     }
 
     private void addAndRemoveCard(Player player) {
+        System.out.println(cards.get(0));
         player.addNewCard(cards.get(0));
         cards.remove(0);
     }
@@ -31,12 +34,8 @@ public class GamePlay {
     }
 
     public void playGame() {
+        List<Player> toRemove = new ArrayList<>();
         for (Player player: players) {
-            if (player.getCurrentScore() > 21) {
-                System.out.println(player.getName() + " ====> Go Bust!!");
-                System.out.println("----------------------------------------------------------");
-                players.remove(player);
-            }
             if (player.getCurrentScore() < 17) {
                 while (player.getCurrentScore() < 17) {
                     System.out.println(player.getName() + " ====> Hit!! You will get dealt another card!");
@@ -48,9 +47,13 @@ public class GamePlay {
                 System.out.println(player.getName() + " ====> You don't get dealt another card!");
                 System.out.println("---------------------------------------------------------");
             }
-        }
-    }
-    public void getPlayerThatWon() {
 
+            if (player.getCurrentScore() > 21) {
+                System.out.println(player.getName() + " ====> Go Bust!!");
+                System.out.println("----------------------------------------------------------");
+                toRemove.add(player);
+            }
+        }
+        players.removeAll(toRemove);
     }
 }
