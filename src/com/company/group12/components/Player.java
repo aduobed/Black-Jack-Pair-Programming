@@ -13,10 +13,6 @@ public class Player {
         return name;
     }
 
-    public String getId() {
-        return id;
-    }
-
     public Player(String name, String id) {
         this.assignedCards = new ArrayList<>();
         this.name = name;

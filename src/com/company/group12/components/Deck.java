@@ -20,7 +20,6 @@ public class Deck {
         Collections.shuffle(cards, new Random((System.nanoTime())));
     }
 
-
     public static List<String> getCards() {
         generateCards();
         shuffleCards();

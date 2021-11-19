@@ -18,7 +18,6 @@ public class GamePlay {
         for (Player player : players) {
             addAndRemoveCard(player);
             addAndRemoveCard(player);
-
         }
     }
 
@@ -40,7 +39,6 @@ public class GamePlay {
                     System.out.println(player.getName() + " ====> Hit!! You will get dealt another card!");
                     System.out.println("------------------------------------------------------");
                     addAndRemoveCard(player);
-//                    System.out.println( player.getName() + "assigned cards are now : " + player.getAssignedCards());
                 }
             }
             if (player.getCurrentScore() >= 17 && player.getCurrentScore() <= 21) {
