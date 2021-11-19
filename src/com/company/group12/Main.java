@@ -23,6 +23,7 @@ public class Main {
         GamePlay gamePlay = new GamePlay(threePlayers, Deck.getCards());
         gamePlay.dealCards();
         gamePlay.playGame();
+        gamePlay.gameWonCheck();
 
 //        for (Player p: deck.getPlayers()) {
 //            System.out.println(p.getAssignedCards());

@@ -31,11 +31,10 @@ public class Player {
         this.assignedCards.add(card);
     }
 
-
-
     public int getCurrentScore() {
         return assignedCards.stream()
                 .map(assignedCard -> assignedCard.split(" "))
                 .mapToInt(arr -> Integer.parseInt(arr[0])).sum();
     }
+
 }
