@@ -6,31 +6,36 @@ import com.company.group12.services.GamePlay;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Player player1 = new Player("James Law", "1");
-        Player player2 = new Player("Jimmy Woo", "2");
-        Player player3 = new Player("Michael Black", "3");
+        int counter = 0;
+        int numberOfPlayers;
 
-        List<Player> threePlayers = new ArrayList<>();
-        threePlayers.add(player1);
-        threePlayers.add(player2);
-        threePlayers.add(player3);
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of players: ");
+            numberOfPlayers = scanner.nextInt();
 
-        GamePlay gamePlay = new GamePlay(threePlayers, Deck.getCards());
-        gamePlay.dealCards();
-        gamePlay.playGame();
-        gamePlay.gameWonCheck();
+        if (numberOfPlayers <= 1 || numberOfPlayers > 6) {
+            System.out.println("Number of players should be more than 1 and must not exceed 6");
+        } else {
+            List<Player> playerList = new ArrayList<>();
+            String nameInput;
+            while (counter < numberOfPlayers) {
+                System.out.print("Enter the name of a player: ");
+                nameInput = scanner.next();
+                playerList.add(new Player(nameInput, String.valueOf(counter)));
+                counter++;
+            }
 
-//        for (Player p: deck.getPlayers()) {
-//            System.out.println(p.getAssignedCards());
-//            System.out.println(p.getCurrentScore());
-//        }
-
-
+            GamePlay gamePlay = new GamePlay(playerList, Deck.getCards());
+            gamePlay.dealCards();
+            gamePlay.playGame();
+            gamePlay.gameWonCheck();
+        }
 
 
 

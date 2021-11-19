@@ -68,7 +68,7 @@ public class GamePlay {
     private void getWinnerByExact21(Player player) {
         System.out.println();
         System.out.println();
-        System.out.println("^^^^^^^^^^^^^^^^&&&&&&&&&&&");
+        System.out.println("=================================");
         System.out.println(player.getName() + " has Won by " + player.getCurrentScore() + " points");
     }
 
@@ -86,6 +86,7 @@ public class GamePlay {
             int max = players.stream().mapToInt(Player::getCurrentScore).max().orElse(0);
             Player player = players.stream().filter(p -> p.getCurrentScore() == max).findFirst().orElse(null);
             System.out.println("#####################################################");
+            assert player != null;
             System.out.println(player.getName() + " has Won by " + player.getCurrentScore() + " points");
 
         }
